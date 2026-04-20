@@ -1,33 +1,26 @@
 # Avery Dennison (avery-dennison)
-Avery Dennison is a Fortune 500 company. This repository captures the APIs, developer tools, and machine-readable API artifacts for Avery Dennison.
+Avery Dennison is a global materials science and manufacturing company specializing in the design and manufacture of labeling and functional materials, packaging, and intelligent labels.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/avery-dennison/refs/heads/main/apis.yml)
+**URL:** [https://www.averydennison.com](https://www.averydennison.com)
 
-## Scope
+## Tags
 
-- **Type:** Contract
-- **Position:** Consuming
-- **Access:** 3rd-Party
-
-## Tags:
-
- - Fortune 500
+ - IoT, RFID, Labels, Supply Chain, Manufacturing
 
 ## Timestamps
 
-- **Created:** 2026-03-21
-- **Modified:** 2026-03-21
-
-## APIs
-
-No public APIs have been documented yet. Contributions welcome.
+- **Created:** 2026-01-01
+- **Modified:** 2026-04-19
 
 ## Common Properties
 
-- [Website](https://www.avery-dennison.com)
+- [Website](https://www.averydennison.com)
+- [Portal](https://developer.averydennison.com/)
+- [GitHubOrganization](https://github.com/avery-dennison)
+- [LinkedIn](https://www.linkedin.com/company/avery-dennison/)
 
 ## Maintainers
 
-**FN:** API Evangelist
+**FN:** Kin Lane
 
-**Email:** info@apievangelist.com
+**Email:** kin@apievangelist.com
