@@ -3,6 +3,8 @@ url: https://raw.githubusercontent.com/api-evangelist/avery-dennison/refs/heads/
 modified: '2026-04-19'
 apis: []
 common:
+- type: DomainSecurity
+  url: security/avery-dennison-domain-security.yml
 - type: Website
   url: https://www.avery-dennison.com
 - type: Portal
