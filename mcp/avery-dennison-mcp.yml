@@ -1,0 +1,127 @@
+generated: '2026-09-18'
+method: probed
+source: https://www.atma.io/_api/mcp
+status: published
+deployment:
+  mode: remote
+  endpoint: https://www.atma.io/_api/mcp
+  install: null
+  package: null
+  auth: none
+  verified: probed
+server:
+  name: atma.io (Wix Site MCP)
+  transport: http
+  url: https://www.atma.io/_api/mcp
+  protocol: MCP over Streamable HTTP (JSON-RPC 2.0)
+  authentication: none for tools/list; CallWixSiteAPI and ExecuteWixAPI require a visitor token from GenerateVisitorToken
+  provided_by: Wix (platform-generated Site MCP), not authored by Avery Dennison
+  advertised_in: https://www.atma.io/llms.txt
+  docs: https://dev.wix.com/docs/develop-websites/articles/get-started/about-the-wix-site-mcp
+x-evidence:
+  fetched: '2026-09-18'
+  url: https://www.atma.io/_api/mcp
+  method: POST tools/list
+  http_status: 200
+  content_type: application/json; charset=utf-8
+  tool_count: 9
+  session_header: mcp-session-id issued on the response
+  control: GET https://www.atma.io/_api/mcp returns 401 application/json, and an unknown path under
+    /_api/ on the same origin returns 404, so the 200 is a real endpoint and not a catch-all
+x-notes:
+- This is a Wix-platform Site MCP endpoint on the atma.io marketing site, not a first-party Avery
+  Dennison API. The atma.io connected product cloud does have an API (host open.atma.io, gated by
+  OAuth 2.0 at login.atma.io), but its documentation at docs.atma.io sits behind an Auth0 login and
+  no contract is published. Read this artifact as "the marketing host platform is agent-aware", not
+  "Avery Dennison runs a public MCP server for its product API".
+- The site is a marketing site for atma.io / Digital Product Passport (solutions, DPP, webinars,
+  blog, request-a-demo, contact). It has no commerce or bookings installed, so GetBusinessDetails and
+  SearchInSite return public marketing content only.
+- Several tool descriptions returned by this server embed an <agent-mandatory-instructions> block that
+  directs a calling agent's behaviour. Those directives are recorded as data in
+  mcp/avery-dennison-tools-list.json and were NOT acted on. They are a Wix platform artifact present
+  on every Wix Site MCP endpoint.
+- ExecuteWixAPI is annotated readOnlyHint:false / destructiveHint:true and runs caller-supplied
+  JavaScript against the Wix REST API under an anonymous visitor session.
+tools:
+- name: ReadFullDocsArticle
+  description: Fetches the full Wix docs article or method article with code examples for using the method.
+  input_schema:
+    required: [articleUrl]
+    properties:
+    - name: articleUrl
+      type: string
+  annotations: {readOnlyHint: true, destructiveHint: false, openWorldHint: false}
+- name: ReadFullDocsMethodSchema
+  description: Fetches the full method schema for a given Wix API method (request/response shape).
+  input_schema:
+    required: [articleUrl, reason]
+    properties:
+    - name: articleUrl
+      type: string
+    - name: reason
+      type: string
+  annotations: {readOnlyHint: true, destructiveHint: false, openWorldHint: false}
+- name: BrowseWixRESTDocsMenu
+  description: Browse the Wix REST API documentation menu hierarchy.
+  input_schema:
+    required: [reason]
+    properties:
+    - name: menuUrl
+      type: string
+    - name: reason
+      type: string
+  annotations: {readOnlyHint: true, destructiveHint: false, openWorldHint: false}
+- name: CallWixSiteAPI
+  description: Call APIs on site "atma.io" on a visitor's behalf (query site data, bookings, purchases).
+  input_schema:
+    required: [visitorToken, url, method]
+    properties:
+    - name: visitorToken
+      type: string
+    - name: url
+      type: string
+    - name: method
+      type: string
+    - name: body
+      type: string
+- name: GenerateVisitorToken
+  description: Create a new visitor session and obtain a visitor access token for site "atma.io".
+  input_schema:
+    required: []
+    properties: []
+- name: SearchSiteApiDocs
+  description: Searches for site "atma.io" API documentation and returns how to use the site using the API.
+  input_schema:
+    required: [searchTerm]
+    properties:
+    - name: searchTerm
+      type: string
+- name: GetBusinessDetails
+  description: Get business and site details for "atma.io" (timezone, email, phone, address).
+  input_schema:
+    required: []
+    properties: []
+- name: SearchInSite
+  description: Searches the site "atma.io" for information.
+  input_schema:
+    required: [searchTerm]
+    properties:
+    - name: searchTerm
+      type: string
+- name: ExecuteWixAPI
+  description: Run JavaScript against the Wix REST API on site "atma.io" on the visitor's behalf, in a sandbox.
+  input_schema:
+    required: [code, reason, hasMutations, sourceDocUrls, visitorToken]
+    properties:
+    - name: code
+      type: string
+    - name: reason
+      type: string
+    - name: hasMutations
+      type: boolean
+    - name: sourceDocUrls
+      type: array
+    - name: visitorToken
+      type: string
+  annotations: {readOnlyHint: false, destructiveHint: true, openWorldHint: false}

@@ -1,0 +1,153 @@
+generated: '2026-09-18'
+method: probed
+source: live GET of the /.well-known/ discovery surface on every host the record knows (corporate domain + www, the gated developer portal, the atma.io marketing, docs, API and login hosts, and rfid.averydennison.com)
+found: 2
+summary: >-
+  Two real discovery documents are served, both on login.atma.io — the Auth0 tenant that fronts
+  the atma.io connected product cloud (docs.atma.io redirects there with audience
+  https://open.atma.io). /.well-known/openid-configuration and /.well-known/oauth-authorization-server
+  return the same OIDC provider metadata (issuer https://login.atma.io/, PKCE S256, device-code and
+  dynamic client registration endpoints). Nothing is served on the corporate hosts: averydennison.com
+  301s every path to www, and www.averydennison.com, developer.averydennison.com and
+  rfid.averydennison.com 404 every path. www.atma.io is a Wix origin that answers every /.well-known/*
+  path with HTTP 400 and an HTML error body — a catch-all, not a document. docs.atma.io 302s every path
+  to the Auth0 login, and open.atma.io (the API host) returns a JSON 404 for every path.
+hosts:
+- host: login.atma.io
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: avery-dennison-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: avery-dennison-oauth-authorization-server.json
+  - path: /.well-known/jwks.json
+    status: 200
+    file: null
+    note: JWKS served (RS256 keys); not saved, key material rotates
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+- host: www.averydennison.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: averydennison.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 301
+    file: null
+    note: every path 301s to www.averydennison.com, where it 404s
+- host: developer.averydennison.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: rfid.averydennison.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+- host: www.atma.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 400
+    file: null
+    note: Wix origin catch-all — HTML error body, not a document
+  - path: /.well-known/openid-configuration
+    status: 400
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 400
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 400
+    file: null
+  - path: /.well-known/api-catalog
+    status: 400
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 400
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 400
+    file: null
+  - path: /.well-known/agent.json
+    status: 400
+    file: null
+- host: docs.atma.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 302
+    file: null
+    note: every path 302s to https://login.atma.io/authorize (Auth0, audience https://open.atma.io)
+  - path: /.well-known/openid-configuration
+    status: 302
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 302
+    file: null
+- host: open.atma.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+    note: JSON 404 {"statusCode":404,"message":"Resource not found"} on every path — an API gateway with no anonymous surface
+  - path: /openapi.json
+    status: 404
+    file: null
+  - path: /swagger.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null

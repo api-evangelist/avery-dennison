@@ -1,0 +1,30 @@
+generated: '2026-09-18'
+method: probed
+source: https://login.atma.io/.well-known/openid-configuration
+summary: >-
+  Conformance is asserted only for what could be verified anonymously: the OAuth 2.0 / OpenID
+  Connect authorization server that gates the atma.io API publishes standard discovery metadata.
+  No API contract is public (docs.atma.io is login-gated, open.atma.io serves no anonymous
+  document), so no REST convention, error-format, pagination or domain-standard conformance can be
+  claimed. Avery Dennison's RFID/labelling market carries standards (GS1 EPC/RFID, GS1 Digital
+  Link, EU Digital Product Passport), and atma.io markets DPP support, but no contract declaring
+  any of them was reachable — reward-only, so nothing is asserted.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: https://login.atma.io/.well-known/oauth-authorization-server (RFC 8414 metadata, HTTP 200)
+- id: oidc
+  conforms: true
+  evidence: https://login.atma.io/.well-known/openid-configuration (issuer https://login.atma.io/, HTTP 200)
+- id: pkce
+  conforms: true
+  evidence: code_challenge_methods_supported [S256, plain] in the discovery document; docs.atma.io login redirect uses S256
+- id: oauth2-device-flow
+  conforms: true
+  evidence: device_authorization_endpoint https://login.atma.io/oauth/device/code in the discovery document
+- id: rfc9457
+  conforms: false
+  evidence: open.atma.io error bodies are {statusCode, message, activityId} JSON, not application/problem+json
+- id: gs1-digital-link
+  conforms: null
+  evidence: marketed on https://www.atma.io/digital-product-passport but no contract reachable to verify

@@ -1,0 +1,11 @@
+generated: '2026-09-18'
+method: searched
+source: https://docs.atma.io/
+limit_count: 0
+limits: []
+headers: []
+note: >-
+  No rate limits are documented publicly. The atma.io API reference at docs.atma.io 302s anonymous
+  visitors to https://login.atma.io/authorize, and the API host open.atma.io answers every
+  unauthenticated path with a JSON 404 and no RateLimit-* or Retry-After headers, so nothing could
+  be read or observed.

@@ -1,0 +1,11 @@
+generated: '2026-09-18'
+method: searched
+source: https://www.atma.io/request-a-demo
+plan_count: 0
+plans: []
+note: >-
+  Avery Dennison publishes no API plans or pricing. The atma.io connected product cloud is sold
+  through "Request a demo" (https://www.atma.io/request-a-demo, HTTP 200) and "Contact us"
+  (https://www.atma.io/contact-us, HTTP 200); the RFID FAQ points developers and partners at a
+  contact form. The developer portal developer.averydennison.com is behind an Okta login and
+  docs.atma.io behind an Auth0 login, so any pricing that exists is customer-only.
