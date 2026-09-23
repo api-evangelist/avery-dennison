@@ -1,7 +1,9 @@
 ---
 title: Avery Dennison adopts enterprise automation
 url: https://www.tcs.com/what-we-do/industries/manufacturing/case-study/intelligent-enterprise-robotic-process-automation
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Avery Dennison" press release artificial intelligence'
 position: 5
 source: serpapi-google

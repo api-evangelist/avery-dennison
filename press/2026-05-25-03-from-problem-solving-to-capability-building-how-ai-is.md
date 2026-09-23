@@ -1,7 +1,9 @@
 ---
 title: 'From problem solving to capability building: How AI is ...'
 url: https://www.averydennison.com/en/home/news/leadership-perspectives/nick-colisto/from-problem-solving-capability-building-ai.html
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Avery Dennison" press release artificial intelligence'
 position: 3
 source: serpapi-google
