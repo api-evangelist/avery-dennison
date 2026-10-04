@@ -51,6 +51,9 @@ apis:
     url: authentication/avery-dennison-authentication.yml
   - type: RateLimits
     url: rate-limits/avery-dennison-rate-limits.yml
+  x-surface: platform-generated
+  x-platform: wix
+  x-platform-surface: site-mcp
 common:
 - type: Website
   url: https://www.averydennison.com
