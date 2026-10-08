@@ -55,6 +55,8 @@ apis:
   x-platform: wix
   x-platform-surface: site-mcp
 common:
+- type: RateLimits
+  url: rate-limits/avery-dennison-rate-limits.yml
 - type: Website
   url: https://www.averydennison.com
 - type: Portal
