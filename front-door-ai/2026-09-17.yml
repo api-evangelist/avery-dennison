@@ -4,18 +4,25 @@
 front_door_ai:
   slug: avery-dennison
   lexicon_version: '1.0'
-  probed_at: '2026-09-17'
-  host: www.avery-dennison.com
-  final_host: null
+  probed_at: '2026-09-25'
+  host: www.averydennison.com
+  final_host: www.averydennison.com
   ownership: own
   owner: avery-dennison
   shares_host_with: null
   inherited_from: null
-  verdict: unmeasured
-  score: null
-  host_score: null
-  density: null
-  words: null
-  tiers: null
-  ambiguous: null
-  top_terms: null
+  alias_of: null
+  verdict: scored
+  score: 1
+  band: 2
+  band_label: trace
+  host_score: 1
+  density: 1.4
+  words: 712
+  tiers:
+    agentic: 0
+    core: 1
+    model: 0
+  ambiguous: 0
+  top_terms:
+    AI: 1
