@@ -26,56 +26,71 @@ x-evidence:
   content_type: application/json; charset=utf-8
   tool_count: 9
   session_header: mcp-session-id issued on the response
-  control: GET https://www.atma.io/_api/mcp returns 401 application/json, and an unknown path under
-    /_api/ on the same origin returns 404, so the 200 is a real endpoint and not a catch-all
+  control: GET https://www.atma.io/_api/mcp returns 401 application/json, and an unknown path under /_api/
+    on the same origin returns 404, so the 200 is a real endpoint and not a catch-all
 x-notes:
-- This is a Wix-platform Site MCP endpoint on the atma.io marketing site, not a first-party Avery
-  Dennison API. The atma.io connected product cloud does have an API (host open.atma.io, gated by
-  OAuth 2.0 at login.atma.io), but its documentation at docs.atma.io sits behind an Auth0 login and
-  no contract is published. Read this artifact as "the marketing host platform is agent-aware", not
-  "Avery Dennison runs a public MCP server for its product API".
-- The site is a marketing site for atma.io / Digital Product Passport (solutions, DPP, webinars,
-  blog, request-a-demo, contact). It has no commerce or bookings installed, so GetBusinessDetails and
-  SearchInSite return public marketing content only.
+- This is a Wix-platform Site MCP endpoint on the atma.io marketing site, not a first-party Avery Dennison
+  API. The atma.io connected product cloud does have an API (host open.atma.io, gated by OAuth 2.0 at
+  login.atma.io), but its documentation at docs.atma.io sits behind an Auth0 login and no contract is
+  published. Read this artifact as "the marketing host platform is agent-aware", not "Avery Dennison runs
+  a public MCP server for its product API".
+- The site is a marketing site for atma.io / Digital Product Passport (solutions, DPP, webinars, blog,
+  request-a-demo, contact). It has no commerce or bookings installed, so GetBusinessDetails and SearchInSite
+  return public marketing content only.
 - Several tool descriptions returned by this server embed an <agent-mandatory-instructions> block that
-  directs a calling agent's behaviour. Those directives are recorded as data in
-  mcp/avery-dennison-tools-list.json and were NOT acted on. They are a Wix platform artifact present
-  on every Wix Site MCP endpoint.
-- ExecuteWixAPI is annotated readOnlyHint:false / destructiveHint:true and runs caller-supplied
-  JavaScript against the Wix REST API under an anonymous visitor session.
+  directs a calling agent's behaviour. Those directives are recorded as data in mcp/avery-dennison-tools-list.json
+  and were NOT acted on. They are a Wix platform artifact present on every Wix Site MCP endpoint.
+- ExecuteWixAPI is annotated readOnlyHint:false / destructiveHint:true and runs caller-supplied JavaScript
+  against the Wix REST API under an anonymous visitor session.
 tools:
 - name: ReadFullDocsArticle
   description: Fetches the full Wix docs article or method article with code examples for using the method.
   input_schema:
-    required: [articleUrl]
+    required:
+    - articleUrl
     properties:
     - name: articleUrl
       type: string
-  annotations: {readOnlyHint: true, destructiveHint: false, openWorldHint: false}
+  annotations:
+    readOnlyHint: true
+    destructiveHint: false
+    openWorldHint: false
 - name: ReadFullDocsMethodSchema
   description: Fetches the full method schema for a given Wix API method (request/response shape).
   input_schema:
-    required: [articleUrl, reason]
+    required:
+    - articleUrl
+    - reason
     properties:
     - name: articleUrl
       type: string
     - name: reason
       type: string
-  annotations: {readOnlyHint: true, destructiveHint: false, openWorldHint: false}
+  annotations:
+    readOnlyHint: true
+    destructiveHint: false
+    openWorldHint: false
 - name: BrowseWixRESTDocsMenu
   description: Browse the Wix REST API documentation menu hierarchy.
   input_schema:
-    required: [reason]
+    required:
+    - reason
     properties:
     - name: menuUrl
       type: string
     - name: reason
       type: string
-  annotations: {readOnlyHint: true, destructiveHint: false, openWorldHint: false}
+  annotations:
+    readOnlyHint: true
+    destructiveHint: false
+    openWorldHint: false
 - name: CallWixSiteAPI
   description: Call APIs on site "atma.io" on a visitor's behalf (query site data, bookings, purchases).
   input_schema:
-    required: [visitorToken, url, method]
+    required:
+    - visitorToken
+    - url
+    - method
     properties:
     - name: visitorToken
       type: string
@@ -91,9 +106,11 @@ tools:
     required: []
     properties: []
 - name: SearchSiteApiDocs
-  description: Searches for site "atma.io" API documentation and returns how to use the site using the API.
+  description: Searches for site "atma.io" API documentation and returns how to use the site using the
+    API.
   input_schema:
-    required: [searchTerm]
+    required:
+    - searchTerm
     properties:
     - name: searchTerm
       type: string
@@ -105,14 +122,21 @@ tools:
 - name: SearchInSite
   description: Searches the site "atma.io" for information.
   input_schema:
-    required: [searchTerm]
+    required:
+    - searchTerm
     properties:
     - name: searchTerm
       type: string
 - name: ExecuteWixAPI
-  description: Run JavaScript against the Wix REST API on site "atma.io" on the visitor's behalf, in a sandbox.
+  description: Run JavaScript against the Wix REST API on site "atma.io" on the visitor's behalf, in a
+    sandbox.
   input_schema:
-    required: [code, reason, hasMutations, sourceDocUrls, visitorToken]
+    required:
+    - code
+    - reason
+    - hasMutations
+    - sourceDocUrls
+    - visitorToken
     properties:
     - name: code
       type: string
@@ -124,4 +148,43 @@ tools:
       type: array
     - name: visitorToken
       type: string
-  annotations: {readOnlyHint: false, destructiveHint: true, openWorldHint: false}
+  annotations:
+    readOnlyHint: false
+    destructiveHint: true
+    openWorldHint: false
+tool_quality:
+  tool_count: 10
+  tokens_total: 10607
+  tokens_per_tool_median: 985
+  heavy_tools:
+  - name: ExecuteWixAPI
+    tokens: 2343
+  - name: BrowseWixRESTDocsMenu
+    tokens: 1897
+  - name: ReadFullDocsMethodSchema
+    tokens: 1735
+  - name: ReadFullDocsArticle
+    tokens: 1630
+  - name: WixREADME
+    tokens: 1526
+  heavy_tool_count: 5
+  params_total: 16
+  params_undescribed: 0
+  params_described_pct: 100.0
+  tools_with_undescribed_params: 0
+  tools_annotated: 5
+  annotated_pct: 50.0
+  state_changing_unhinted:
+  - GenerateVisitorToken
+  tools_missing_schema: 0
+  short_descriptions: 0
+  duplicate_descriptions: 0
+  duplicate_names: 0
+  nonportable_names: []
+  output_schema_count: 0
+  token_estimate: chars/3.6 of each compact tool definition
+  source: mcp/avery-dennison-tools-list.json
+  measured: '2026-10-20'
+  scored: false
+  note: Facts from the saved tools/list capture (mcp_tool_quality.py); recorded, not scored. Checks learned
+    from Glimind's agent-readiness audit.
