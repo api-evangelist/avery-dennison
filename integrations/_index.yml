@@ -39,6 +39,32 @@
     signal_note: 'participation only: program membership is vetted, not a conformance test; solution_areas are context,
       never read'
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: avery-dennison-ellen-macarthur-foundation-network
+  label: Ellen MacArthur Foundation Network
+  partner_name: Ellen MacArthur Foundation Network
+  category: circular economy network membership
+  type: register
+  channel: standard-directory
+  evidence: https://www.ellenmacarthurfoundation.org/network/who-is-in-the-network
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: Ellen MacArthur Foundation Network (ellenmacarthurfoundation.org/network/who-is-in-the-network)
+    standard: Ellen MacArthur Foundation circular economy network
+    spec_file: null
+    role: emf-network-member
+    registered_name: Avery Dennison
+    partner_tier: Member
+    matched_domain: averydennison.com
+    matched_by: domain
+    signal_note: 'participation only: membership of the circular-economy network (logo wall by tier, names only);
+      listing is not conformance; the tier is context in partner_tier, never a weight'
+    detected_by: sweep-electronics-recycling-circular.py
+    detected: '2026-10-21'
+    identity: wikidata Q790650 'Avery Dennison' P856 https://averydennison.com
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
   status: not-a-workflow
   arazzo: null

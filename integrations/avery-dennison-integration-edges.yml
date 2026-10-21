@@ -5,6 +5,15 @@ checked:
 - https://www.gs1.org/services/gdsn/certified-data-pools-list
 - https://www.gs1us.org/services/find-gs1-us-solution-partner/profiles
 - https://www.spscommerce.com/partner-community/directory/
+- https://batterynetwork.org/stewards/compliant-stewards/
+- https://e-stewards.org/find-a-recycler/
+- https://sustainableelectronics.org/find-an-r2-certified-facility/
+- https://thebatterypass.eu/battery-pass-ready/
+- https://www.call2recycle.org/
+- https://www.ellenmacarthurfoundation.org/network/members
+- https://www.ellenmacarthurfoundation.org/network/who-is-in-the-network
+- https://www.globalbattery.org/about/members/
+- https://www.globalbattery.org/members/
 marketplace_apps: []
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -45,9 +54,36 @@ edges:
     signal_note: 'participation only: program membership is vetted, not a conformance test; solution_areas are context,
       never read'
     detected_by: sweep-consumer-goods.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-consumer-goods.py
   first_seen: '2026-10-15'
+- partner_name: Ellen MacArthur Foundation Network
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.ellenmacarthurfoundation.org/network/who-is-in-the-network
+  category: circular economy network membership
+  partner_tier: Member
+  contract_reference:
+    register: Ellen MacArthur Foundation Network (ellenmacarthurfoundation.org/network/who-is-in-the-network)
+    standard: Ellen MacArthur Foundation circular economy network
+    spec_file: null
+    role: emf-network-member
+    registered_name: Avery Dennison
+    partner_tier: Member
+    matched_domain: averydennison.com
+    matched_by: domain
+    signal_note: 'participation only: membership of the circular-economy network (logo wall by tier, names only);
+      listing is not conformance; the tier is context in partner_tier, never a weight'
+    detected_by: sweep-electronics-recycling-circular.py
+    detected: '2026-10-21'
+    identity: wikidata Q790650 'Avery Dennison' P856 https://averydennison.com
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
+  detected_by: sweep-electronics-recycling-circular.py
+  first_seen: '2026-10-21'
 source:
 - https://www.gs1.org/services/gdsn/certified-data-pools-list
 - https://www.gs1us.org/services/find-gs1-us-solution-partner/profiles
