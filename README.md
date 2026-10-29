@@ -1,4 +1,4 @@
-# Avery Dennison (avery-dennison)
+# Avery Dennison
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,28 +64,108 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Avery Dennison is a global materials science and manufacturing company specializing in the design and manufacture of labeling and functional materials, packaging, and intelligent labels.
+Avery Dennison is a global materials science and manufacturing company specializing in the design and manufacture of labeling and functional materials, packaging, and intelligent labels. Its RFID and digital-identification business runs atma.io, a connected product cloud that assigns digital IDs to physical items and underpins its Digital Product Passport offering; the atma.io API is gated behind an OAuth 2.0 login and no public contract is published.
 
-**URL:** [https://www.averydennison.com](https://www.averydennison.com)
+**Areas:** Fortune 500 · IoT · RFID · Labels · Supply Chain · Manufacturing · Digital Product Passport
 
-## Tags
+## Avery Dennison on APIs.io
 
- - IoT, RFID, Labels, Supply Chain, Manufacturing
+Everything profiled for Avery Dennison is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/avery-dennison/](https://apis.io/providers/avery-dennison/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (1)
 
-- **Created:** 2026-01-01
-- **Modified:** 2026-04-19
+- [atma.io Site MCP](https://apis.io/apis/avery-dennison/atma-io-site-mcp/) — A live, anonymously reachable Model Context Protocol endpoint served from the atma.io marketing site (Avery Dennison's connected product cloud and Digital…
 
-## Common Properties
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [atma.io (Wix Site MCP)](https://apis.io/servers/avery-dennison/atma-io-wix-site-mcp/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Avery Dennison Authentication](https://apis.io/security/avery-dennison/avery-dennison-authentication/)
+- [Avery Dennison Domain Security](https://apis.io/security/avery-dennison/avery-dennison-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Avery Dennison Plans Pricing](https://apis.io/plans/avery-dennison/avery-dennison-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Avery Dennison Rate Limits](https://apis.io/rate-limits/avery-dennison/avery-dennison-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.averydennison.com)
-- [Portal](https://developer.averydennison.com/)
-- [GitHubOrganization](https://github.com/avery-dennison)
-- [LinkedIn](https://www.linkedin.com/company/avery-dennison/)
+- [Support](https://www.averydennison.com/en/home/contact-us.html)
+- [Blog](https://www.averydennison.com/en/home/news/company-blog.html)
+- [Privacy policy](https://www.averydennison.com/en/home/legal-and-privacy-notices.html)
+- [GitHub](https://github.com/averydennison)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
+**Kin Score 18.7** — emerging · rubric 0.25.0 · scored 2026-10-23
 
-**Email:** kin@apievangelist.com
+| Facet | Score |
+|---|---|
+| Discoverability | 75.8 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 10.5 |
+
+**Agent readiness 19.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 20.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/avery-dennison/](https://apis.io/providers/avery-dennison/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Avery Dennison: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/avery-dennison/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
